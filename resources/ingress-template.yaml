@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: demo-ingress
+spec:
+  entryPoints:
+  - web
+  - websecure
+  routes:
+  - kind: Rule
+    match: PathPrefix(`/laurens`)
+    services:
+    - name: workbench-service
+      port: 80
+  tls:
+    secretName: tls-secret
