@@ -1,3 +1,4 @@
+# Seems like we cannot define services in the deployment manifest?
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -28,6 +29,8 @@ spec:
               configMapKeyRef:
                 name: demo-configmap
                 key: foo
+          # Using the secret
+          # NOTE: Will we still create the secrets directly?
           - name: TEST_SECRET
             valueFrom:
               secretKeyRef:
@@ -35,6 +38,8 @@ spec:
                 key: password
       restartPolicy: Always
       volumes:
+        # NOTE: How are these managed?
+        # NOTE: Why volume mounts AND PVCs?
         - name: demo-volume
           persistentVolumeClaim:
             claimName: demo-volume-claim
