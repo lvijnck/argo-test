@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: workbench-deployment
+  namespace: laurens
   labels:
     app: workbench
 spec:
