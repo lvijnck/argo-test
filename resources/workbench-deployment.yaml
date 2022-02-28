@@ -28,3 +28,9 @@ spec:
               configMapKeyRef:
                 name: demo-configmap
                 key: foo
+          - name: TEST_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: demo-secret
+                key: password
+      restartPolicy: Always
