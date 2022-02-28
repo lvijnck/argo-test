@@ -34,3 +34,7 @@ spec:
                 name: demo-secret
                 key: password
       restartPolicy: Always
+      volumes:
+        - name: demo-volume
+          persistentVolumeClaim:
+            claimName: demo-volume-claim

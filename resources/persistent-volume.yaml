@@ -1,13 +1,12 @@
 apiVersion: v1
-kind: PersistentVolumeClaim
+kind: PersistentVolume
 metadata:
   name: demo-volume
-  namespace: laurens
 spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
   accessModes:
-    - ReadWriteOnce
-  volumeMode: Filesystem
-  resources:
-    requests:
-      storage: 1Gi
-  storageClassName: "" # Use EBS in template
+  - ReadWriteOnce
+  hostPath:
+    path: /mr/zk
